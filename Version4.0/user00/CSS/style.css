@@ -37,7 +37,21 @@ button:active {
 
 .red {
 	background-color: #ff0000;
+	border-radius: 50%;
 }
+.blue {
+	background-color: #0000ff;
+	border-radius: 5%;
+}
+.green {
+	background-color: #00ff00;
+	border-radius: 25%;
+}
+.yellow {
+	background-color: #ffff00;
+	border-radius: 17%;
+}
+
 
 td{
 	padding:20px;
