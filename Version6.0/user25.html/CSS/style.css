@@ -1,0 +1,15 @@
+.hero {
+  background-image: url("../images/landscaping.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  padding: 60px 0;
+}
+
+form input {
+  border-radius: 5px;
+}
+
+.navbar h1 {
+    color: white;
+}
