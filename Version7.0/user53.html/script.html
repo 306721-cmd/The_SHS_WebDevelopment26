@@ -1,94 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Version 5.0
-    Name:
-    Date Completed:
--->
-
 <head>
-    <title>JavaScript</title>
+    <title>JavaScript Games</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="SHS WebDev JavaScript Practice">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <!-- Custom -->
-    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- JavaScript -->
-    <!-- These are needed to get the responsive menu to work -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="JS/script.js"></script>
+    <style>
+        body{
+            text-align:center;
+            font-family:Arial;
+            background:#f4f4f4;
+            margin:0;
+        }
 
-    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Put your .js files here ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+        header, footer{
+            background:#343a40;
+            color:white;
+            padding:20px;
+        }
 
-    <!-- Custom styles for this template -->
-    <style type="text/css">
+        section{
+            background:white;
+            width:80%;
+            margin:20px auto;
+            padding:20px;
+            border-radius:10px;
+        }
 
+        #box{
+            width:150px;
+            height:150px;
+            background:red;
+            margin:20px auto;
+            display:none;
+        }
+
+        #colorSquare{
+            width:200px;
+            height:200px;
+            background:blue;
+            margin:20px auto;
+        }
     </style>
 </head>
 
 <body>
-    <!---------------------------------- Begin the nav-bar ------------->
-    <div class="menu">
-        <nav class="navbar navbar-expand-md p-2 navbar-dark bg-dark">
-            <a href="http://shakonet.isd720.com/WebDev" class="navbar-brand">WebDev</a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your Menu ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="#" class="nav-item nav-link">About Me</a>
-                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Music</a>
-                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Lists</a>
-                    <a href="games.html" class="nav-item nav-link" tabindex="-1">Games</a>
-                    <a href="bootstrap.html" class="nav-item nav-link" tabindex="-1">Bootstrap</a>
-                    <a href="script.html" class="nav-item nav-link active" tabindex="-1">JavaScript</a>
-                    <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-item nav-link disabled" tabindex="-1">Contact</a>
-                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your Menu ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
-                </div>
-                <div class="navbar-nav ms-auto">
-                    <a href="#" class="nav-item nav-link disabled">Login</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!---------------------------------- End the nav-bar ------------->
+<header>
+    <h1>JavaScript Games</h1>
+    <p>Simple Interactive Webpage</p>
+</header>
 
-    <main class="m-3" id="content">
-        <h1 class="text-left my-3">My JavaScript Examples</h1>
-        <!-- Edit this line for the title of your page -->
-        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-4" style="background-color:yellow;">PUT YOUR CODE HERE</div>
-                <div class="col-sm-4" style="background-color:orange;">PUT YOUR CODE HERE</div>
-                <div class="col-sm-4" style="background-color:yellow;">PUT YOUR CODE HERE</div>
-            </div>
-        </div>
-    </main>
-    <!--↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑-->
+<section>
+    <h2>Reaction Game</h2>
+    <button onclick="startGame()" class="btn btn-success">Start</button>
+    <div id="box" onclick="stopGame()"></div>
+    <h3 id="result"></h3>
+</section>
 
+<section>
+    <h2>Color Changer</h2>
+    <div id="colorSquare"></div>
+    <button onclick="changeColor()" class="btn btn-primary">Change Color</button>
+</section>
 
-    <!---------------------------------- Begin the footer ------------->
-    <footer class="small text-center" id="footer">
-        <p>
-            Webpage made by <a href="index.html" target="_blank">[your name]</a>
-        </p>
-    </footer>
-    <!---------------------------------- End the footer ------------->
+<section>
+    <h2>Counter Game</h2>
+    <h1 id="score">0</h1>
+    <button onclick="addScore()" class="btn btn-danger">Add Point</button>
+    <button onclick="resetScore()" class="btn btn-dark">Reset</button>
+</section>
+
+<footer>
+    <p>JavaScript Assignment</p>
+</footer>
+
+<script>
+
+    // runs ONCE when page loads
+    window.onload = function(){
+        alert("Welcome to my JavaScript Games!");
+    };
+
+    // Reaction game
+    var startTime;
+
+    function startGame(){
+        document.getElementById("result").innerHTML = "Wait for the box...";
+        document.getElementById("box").style.display = "none";
+
+        var time = Math.random() * 3000;
+
+        setTimeout(function(){
+            document.getElementById("box").style.display = "block";
+            startTime = new Date().getTime();
+        }, time);
+    }
+
+    function stopGame(){
+        var endTime = new Date().getTime();
+        var reaction = (endTime - startTime) / 1000;
+
+        document.getElementById("result").innerHTML =
+        "Your time: " + reaction + " seconds";
+
+        document.getElementById("box").style.display = "none";
+    }
+
+    // Color changer
+    function changeColor(){
+        var colors = ["red","blue","green","purple","orange","pink"];
+
+        var random = colors[Math.floor(Math.random() * colors.length)];
+
+        document.getElementById("colorSquare").style.background = random;
+    }
+
+    // Counter game
+    var score = 0;
+
+    function addScore(){
+        score = score + 1;
+        document.getElementById("score").innerHTML = score;
+    }
+
+    function resetScore(){
+        score = 0;
+        document.getElementById("score").innerHTML = score;
+    }
+
+</script>
+
 </body>
-
 </html>
