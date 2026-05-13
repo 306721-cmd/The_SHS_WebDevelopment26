@@ -9,12 +9,13 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body class="index-page">
-   <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom">
-            <a class="navbar-brand fw-bold text-white" href="index.html">
-                 Moonveil Travel
-            </a>
-              
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="lists.html">Moonveil Travel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#travelMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="travelMenu">
                 <div class="navbar-nav ms-auto">
                    <ul class="navbar-nav ms-auto">
@@ -29,20 +30,45 @@
         </div>
     </nav>
 
-<header class="main-top-section">
-    <div class="-tint"></div>
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold display-4 page-title-poppins">Traveler's Toolkit</h1>
+        <p class="text-muted">Everything you need to know before you fly.</p>
+    </div>
 
-    <div class="container text-center content-wrapper">
-        <h1 class="display-1 fw-bold text-white">EXPLORE. DREAM. DISCOVER.</h1>
-        <p class="lead text-white mt-3">
-            From hidden gems to world-famous wonders, your next unforgettable adventure starts here.
-        </p>
-        <div class="mt-5">
-            <a href="destination.html" class="btn btn-outline-light btn-lg px-5 py-3">START EXPLORING</a>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="p-5 h-100 list-panel list-panel-light">
+                <h3 class="fw-bold mb-4">🧳 Essential Packing</h3>
+                <ul class="list-group list-group-flush transparent-list-group">
+                    <li class="list-group-item bg-transparent border-bottom">Universal Power Adapter</li>
+                    <li class="list-group-item bg-transparent border-bottom">Portable Power Bank</li>
+                    <li class="list-group-item bg-transparent border-bottom">Noise-canceling Headphones</li>
+                    <li class="list-group-item bg-transparent border-bottom">Travel-sized Toiletries</li>
+                    <li class="list-group-item bg-transparent border-0">Reusable Water Bottle</li>
+                </ul>
             </div>
         </div>
-    </div>   
-</header> 
+
+        <div class="col-md-6 mb-4">
+            <div class="p-5 h-100 list-panel list-panel-dark">
+                <h3 class="fw-bold mb-4">💡 Pro Tips</h3>
+                <div class="mb-3">
+                    <h5>Check your Passport</h5>
+                    <p class="small text-light">Ensure it has at least 6 months validity remaining.</p>
+                </div>
+                <div class="mb-3">
+                    <h5>Notify your Bank</h5>
+                    <p class="small text-light">Let them know you're traveling to avoid blocked cards.</p>
+                </div>
+                <div class="mb-0">
+                    <h5>Download Offline Maps</h5>
+                    <p class="small text-light">Google Maps allows you to save cities for offline use.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer class="bg-dark text-white pt-5 pb-4 mt-5">
     <div class="container text-center text-md-left">
@@ -80,6 +106,6 @@
         </div>
     </div>
 </footer>
-
+    
 </body>
 </html>
