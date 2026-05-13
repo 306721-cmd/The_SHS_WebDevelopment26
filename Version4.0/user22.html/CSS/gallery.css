@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.container {
+#gallery .container {
   display: inline-block;
   margin: 3%;
   perspective: 1000px;
@@ -43,7 +43,7 @@ img {
   width: 100%;
 }
 
-.container, .front, .back {
+#gallery .container, .front, .back {
   width: 250px;
   height: 320px;
 }

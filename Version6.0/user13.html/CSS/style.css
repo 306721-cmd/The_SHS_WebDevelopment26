@@ -1,0 +1,30 @@
+* {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#titleCard {
+  width: 550px;
+  height: 200px;
+  background-color: rgb(234, 239, 239);
+  margin: 45px 450px 10px 450px;
+
+}
+
+#content {
+    width: 100%;
+    background-color: brown;
+}
+
+.card {
+    width: 350px;
+    height: 500px;
+    background-color: aqua;
+    margin: 10px 50px;
+    display: inline-block;
+}
+
+a {
+    color: black;
+    font-size: xx-large;
+}

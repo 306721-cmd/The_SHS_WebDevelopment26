@@ -20,6 +20,11 @@ th {
 	color: #ffffff;
 	background-color: #1a9367;
 }
-body {
-	background-image: url("../images/BHG.jpeg");
+
+body { 
+	background-image: url("background.jpg"); /fly_by_nightAlbumCover.jpg/
+  background-size: cover; /* makes it fill the page */
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
