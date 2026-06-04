@@ -6,127 +6,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Client Website</title>
 
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="SHS WebDev Version 3.0">
 
-    <!-- CSS -->
-    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Animate -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <!-- Custom -->
     <link rel="stylesheet" href="CSS/style.css">
 
-    <!-- JavaScript -->
-    <!-- These are needed to get the responsive menu to work -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom styles for this template -->
     <style type="text/css">
+        /* NEW: Smooth page scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding-top: 56px; /* Keeps content from hiding under the fixed navbar */
+            background-color: #f8f9fa;
+        }
+
+        /* NEW: Hero Splash Styling */
+        .splash-container {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
+        }
+
+        .splash-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* NEW: Hover effects for Nav Items */
+        .navbar-nav .nav-link {
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #0d6efd !important;
+            transform: translateY(-2px);
+        }
+
+        /* NEW: Scroll-hidden class for scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         footer {
             font-size: 12px;
             text-align: center;
+            padding: 20px 0;
+            background-color: #212529;
+            color: #aaa;
+            margin-top: 50px;
+        }
+        footer a {
+            color: #0d6efd;
+            text-decoration: none;
         }
     </style>
     <link rel="stylesheet" href="styles.css">
-    
 </head> 
+
 <body>
-    <!---------------------------------- Begin the nav-bar ------------->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top shadow">
         <div class="container-fluid">
-            <a href="http://shakonet.isd720.com" class="navbar-brand">PeaksPrehab</a>
+            <a href="http://shakonet.isd720.com" class="navbar-brand fw-bold text-primary">PeaksPrehab</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto">
-                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-                    <li class="nav-item">
-                        <a href="1splash.html" class="nav-link active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="2resourcehub.html" class="nav-link">Resources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="3coaching.html" class="nav-link">Coaching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="blog.html" class="nav-link">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="business.html" class="nav-link">Business</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="chatrooms.html" class="nav-link">Chatrooms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="csurvivorship.html" class="nav-link">Survivorship</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="mentalhealth.html" class="nav-link">Mental Health</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="nutrition.html" class="nav-link">Nutrition</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="fitness.html" class="nav-link">Fitness</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="spirituality.html" class="nav-link">Spirituality</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="events.html" class="nav-link">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="mailto:smailto:peaksprehab@gmail.com?Subject=Hello" class="nav-link active" tabindex="-1">Contact</a>
-                    </li>
-                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+                    <li class="nav-item"><a href="1splash.html" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="2resourcehub.html" class="nav-link">Resources</a></li>
+                    <li class="nav-item"><a href="3coaching.html" class="nav-link">Coaching</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="business.html" class="nav-link">Business</a></li>
+                    <li class="nav-item"><a href="chatrooms.html" class="nav-link">Chatrooms</a></li>
+                    <li class="nav-item"><a href="csurvivorship.html" class="nav-link">Survivorship</a></li>
+                    <li class="nav-item"><a href="mentalhealth.html" class="nav-link">Mental Health</a></li>
+                    <li class="nav-item"><a href="nutrition.html" class="nav-link">Nutrition</a></li>
+                    <li class="nav-item"><a href="fitness.html" class="nav-link">Fitness</a></li>
+                    <li class="nav-item"><a href="spirituality.html" class="nav-link">Spirituality</a></li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="mailto:peaksprehab@gmail.com?Subject=Hello" class="nav-link">Contact</a></li>
                 </ul>
                 <form class="d-flex">
-                    <button class="btn btn-primary" type="button">Login</button>
+                    <button class="btn btn-primary shadow-sm" type="button">Login</button>
                 </form>
             </div>
         </div>
     </nav>
+
     <div class="splash-container">
-        <h1>Welcome to Our Sample Client Website</h1>
-        <p>Your one-stop solution for all your needs.</p>
-        <img src="images/peaksprehab.jpg" alt="PeaksPrehab" width="100" height="100" style="display: block; margin-left: auto; margin-right: auto;">
-        
+        <h1 class="animated fadeInDown">Welcome to PeaksPrehab</h1>
+        <p class="animated fadeInUp delay-1s">Your one-stop solution for all your needs.</p>
+        <img src="images/peaksprehab.jpg" alt="PeaksPrehab" width="100" height="100" class="rounded-circle shadow mt-3 animated zoomIn delay-1s" style="display: block; margin: 0 auto;">
     </div>
-    <main class="container-fluid mt-3">
 
-        <h1 class="text-left my-3">Start your journey today!</h1>
-        <!-- Edit this line for the title of your page -->
-
-        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ ↓-->
-        <p>
-
-            
-        </p>
-        <p>
-
+    <main class="container mt-5 reveal">
+        <h2 class="text-center my-4">Start your journey today!</h2>
         
-        </p>
+        <div class="row text-center mt-4">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm border-0 p-3">
+                    <i class="fa-solid fa-heart-pulse fa-3x text-primary my-3"></i>
+                    <h3>Fitness</h3>
+                    <p>Track your movement and optimize your daily physical health.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm border-0 p-3">
+                    <i class="fa-solid fa-brain fa-3x text-primary my-3"></i>
+                    <h3>Mental Health</h3>
+                    <p>Resources, strategies, and environments built to keep you grounded.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="col-md-4 w-100 mb-3">
+                <div class="card h-100 shadow-sm border-0 p-3">
+                    <i class="fa-solid fa-apple-whole fa-3x text-primary my-3"></i>
+                    <h3>Nutrition</h3>
+                    <p>Fuel your recovery with tailored nutritional advice.</p>
+                </div>
+            </div>
+        </div>
     </main>
-    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
 
+    <footer>
+        <p>Webpage made by <a href="#" target="_blank">[Mr.Teut]</a></p>
+    </footer>
 
+    <script>
+        $(document).ready(function() {
+            
+            // 1. Scroll-to-Reveal Animation Function
+            function revealOnScroll() {
+                $('.reveal').each(function() {
+                    var objectTop = $(this).offset().top;
+                    var windowBottom = $(window).scrollTop() + $(window).height();
+                    
+                    if (windowBottom > objectTop + 50) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+            
+            // Run scroll check on page load and when scrolling
+            $(window).on('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger instantly for items above the fold
+
+            // 2. Interactive UI: Add a dynamic shadow to navbar upon scrolling down
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 50) {
+                    $('.navbar').addClass('bg-dark-solid shadow-lg').css('transition', 'all 0.3s');
+                } else {
+                    $('.navbar').removeClass('shadow-lg');
+                }
+            });
+
+            // 3. Subtle Micro-interaction: Hover animation for dynamic cards
+            $('.card').hover(
+                function() { $(this).addClass('shadow-lg').css({'transform': 'translateY(-5px)', 'transition': 'all 0.3s'}); },
+                function() { $(this).removeClass('shadow-lg').css('transform', 'translateY(0)'); }
+            );
+        });
+    </script>
 </body> 
-<footer>
-
-        <p>
-            <center> Webpage made by <a href="#" target="_blank">[Mr.Teut]</a></center>
-        </p>
-
-</footer>
 </html>
