@@ -79,3 +79,81 @@
 }
 
 .overflow-hidden { overflow: hidden; }
+
+.hero {
+  background: linear-gradient(120deg, rgba(10, 45, 76, 0.92), rgba(18, 112, 174, 0.78)), url('../images/a1.jpg') center/cover no-repeat;
+  background-blend-mode: overlay;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 23, 46, 0.18), rgba(2, 23, 46, 0.75));
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.resource-preview-section .card {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.resource-card {
+  transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.12);
+}
+
+.resource-card.locked {
+  border: 1px dashed #ffc107;
+}
+
+.resource-card.locked .resource-cta {
+  opacity: 0.95;
+}
+
+.resource-card.locked .premium-note {
+  font-size: 0.92rem;
+  color: #f8d56d;
+}
+
+.resource-card.locked .card-body {
+  filter: saturate(0.95) blur(0.8px);
+}
+
+.premium-note {
+  font-weight: 600;
+}
+
+.weather-card, .budget-card {
+  min-height: 220px;
+}
+
+.weather-day {
+  min-height: 120px;
+}
+
+.site-footer {
+  background-color: #111;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: 45vh;
+  }
+}
+

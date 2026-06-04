@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+        }
+
+        .box{
+            border: 2px solid black;
+            width: 92%;
+            height: 90px;
+            margin: 30px auto;
+            padding: 8px;
+        }
+
+        input{
+            width: 200px;
+            height: 22px;
+            font-size: 14px;
+        }
+
+        button{
+            height: 28px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <form name="submit-to-google-sheet">
+
+            <input name="email" type="email" placeholder="Email" required>
+
+            <input name="name" type="text" placeholder="Name" required>
+
+            <input name="color" type="text" placeholder="Favorite Color">
+
+            <input name="comments" type="text" placeholder="Comments">
+
+            <button type="submit">Send</button>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw41kjfSbevRgkJR7habEHyVR9-fwCZ7U6GYtx8myDnL1MJul-QgFHxXJzOmG24q_c/exec';
+
+        const form = document.forms['submit-to-google-sheet'];
+
+        form.addEventListener('submit', e => {
+
+            e.preventDefault();
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+
+            .then(response => {
+                alert("Success!");
+                form.reset();
+            })
+
+            .catch(error => {
+                alert("Error! " + error.message);
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

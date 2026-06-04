@@ -1,0 +1,1 @@
+const c = Math.sqrt((a * a) + (b * b));

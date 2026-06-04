@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Ries Restoration</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body class="contact-page">
+
+<nav class="top-bar py-2 px-4 text-white" style="background-color:#083806;">
+
+  <div class="d-flex justify-content-between align-items-center">
+
+    <div>
+      Give us a call: 555-555-5555
+    </div>
+
+    <div id="clock">
+      Loading time...
+    </div>
+
+  </div>
+
+</nav>
+
+<nav class="navbar px-4 d-flex justify-content-between align-items-center" style="background-color:#0D0D0D;">
+
+  <div class="d-flex align-items-center gap-2">
+    <img src="images/RRlogo.jpg" alt="RR Logo" height="95" width="115">
+    <h1 class="navbar-title">Ries Restoration LLC</h1>
+  </div>
+
+  <div class="d-flex gap-4">
+    <a class="nav-link text-white" href="index.html">Home</a>
+    <a class="nav-link text-white" href="about.html">About</a>
+    <a class="nav-link text-white" href="services.html">Services</a>
+    <a class="nav-link text-white" href="gallery.html">Gallery</a>
+    <a class="nav-link text-white" href="contact.html">Contact</a>
+  </div>
+
+</nav>
+
+<section class="contact-hero py-5">
+
+  <div class="container d-flex justify-content-center">
+
+    <div class="col-md-6">
+
+      <!-- BOX 1: CONTACT FORM (NOW TOP) -->
+      <div class="p-4 shadow rounded text-white mb-4" style="background-color:#0D0D0D;">
+
+        <h3 class="contact-box text-center mb-4">Contact Us Now!</h3>
+
+        <form onsubmit="return validateForm()">
+
+          <input id="name" class="form-control mb-3" placeholder="Full Name">
+
+          <input id="email" class="form-control mb-3" placeholder="Email Address">
+
+          <input class="form-control mb-3" placeholder="Phone Number">
+
+          <input class="form-control mb-3" placeholder="Street Address">
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <input class="form-control mb-3" placeholder="City">
+            </div>
+
+            <div class="col-md-6">
+              <input class="form-control mb-3" placeholder="Zip Code">
+            </div>
+
+          </div>
+
+          <select id="service" class="form-select mb-3">
+            <option selected>Select A Service</option>
+            <option>Landscaping</option>
+            <option>Tree Trimming</option>
+            <option>Land Clearing</option>
+            <option>Snow Removal</option>
+            <option>Other/more than 1 service</option>
+          </select>
+
+          <textarea class="form-control mb-3" rows="4" placeholder="How can we help you?"></textarea>
+
+          <button class="btn btn-light w-100">
+            Submit
+          </button>
+
+        </form>
+
+      </div>
+
+      <!-- BOX 2: ESTIMATE / ZIP / REVIEWS -->
+      <div class="p-4 shadow rounded text-white mb-4" style="background-color:#0D0D0D;">
+
+        <h4>Estimated Prices</h4>
+
+        <input id="sqft" class="form-control mb-2" placeholder="Property Size (sq ft)">
+
+        <select id="estimateService" class="form-select mb-2">
+          <option>Landscaping</option>
+          <option>Snow Removal</option>
+          <option>Tree Trimming</option>
+        </select>
+
+        <button onclick="calculateEstimate()" class="btn btn-success">
+          Calculate Estimate
+        </button>
+
+        <h5 id="estimateResult" class="mt-3"></h5>
+
+        <hr>
+
+        <h4>Find Your City</h4>
+
+        <input id="zipcode" class="form-control mb-2" placeholder="Enter Zip Code">
+
+        <button onclick="getZipInfo()" class="btn btn-success">
+          Lookup Zip Code
+        </button>
+
+        <p id="zipResult" class="mt-2"></p>
+
+        <hr>
+
+        <h4>Customer Reviews</h4>
+
+        <button onclick="showReview()" class="btn btn-success">
+          Show Review
+        </button>
+
+        <p id="reviewText" class="mt-3"></p>
+
+      </div>
+
+      <!-- BOX 3: SERVICE RECOMMENDATION (NOW FIXED) -->
+      <div class="p-4 shadow rounded text-white" style="background-color:#0D0D0D;">
+
+        <h4>Service Recommendation</h4>
+
+        <select id="yardCondition" class="form-select mb-2">
+          <option>Overgrown trees</option>
+          <option>Long grass</option>
+          <option>Snowy driveway</option>
+          <option>Clearing for construction</option>
+        </select>
+
+        <button onclick="recommendService()" class="btn btn-success">
+          Get Recommendation
+        </button>
+
+        <p id="recommendResult" class="mt-3"></p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script src="JS/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

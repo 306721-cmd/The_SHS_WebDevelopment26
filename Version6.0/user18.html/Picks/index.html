@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="api.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Basic Info <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="davidBailey.html">Bailey</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="kenyonSadiq.html">Sadiq</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="omarCooper.html">CooperJR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="dangeloPonds.html">Ponds</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="darrellJackson.html">JacksonJR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="cadeKlubnik.html">Klubnik</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="anezCooper.html">Cooper</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="vjPayne.html">Payne</a>
+      </li>
+    
+      </li>
+    </ul>
+  </div>
+</nav>
+<h1 class="draft">DRAFT PICKS</h1>
+<h2 class="draft">Learn about the Jets draft picks, each page covering a different round and players/player</h2>
+<h2 class=draft>Information on each player</h2>
+<script>
+  'x-rapidapi-key'; 'e943811618mshfdf3ae4e0fe4a49p163b1bjsnbef567500081',
+fetch('https://nfl-football-api.p.rapidapi.com/nfl-team-list')
+.then(res => {
+res.json();
+})
+.then(data => {
+  console.log(data)
+})
+.catch(error => console.log(error));
+
+
+function positionDE() {
+  document.getElementById("DE").innerHTML = "A DE will rush the passer or try to stop a run.";
+}
+
+function positionTE() {
+  document.getElementById("TE").innerHTML = "A TE will catch passes or block for the runner or passer";
+}
+
+function positionWR() {
+  document.getElementById("WR").innerHTML = "A WR serves as a teams number one pass catcher and primarily does that.";
+}
+
+function positionCB() {
+  document.getElementById("CB").innerHTML = "A CB will try to prevent passes from reaching their target through coverage.";
+}
+function positionDT() {
+  document.getElementById("DT").innerHTML = "A DT is almost the same as a DE, just defending up the middle and primarily the run.";
+}
+
+function positionQB() {
+  document.getElementById("QB").innerHTML = "A QB is the heart and soul of a team, passing the ball and sometimes rushing.";
+}
+
+function positionG() {
+  document.getElementById("G").innerHTML = "A guard will defend the interior of olines, being especially useful on run plays";
+}
+
+function positionS() {
+  document.getElementById("S").innerHTML = "A safety is the backline of a defnese, defending passes and covering players and if other positions can't make a tackle, they will be there.";
+}
+</script>
+
+
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="index.css">
+<body>
+
+        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+        <table id="picks">
+<table class="table table-sm border border-dark col-md-8">
+            <thead>
+                <tr>
+                    <th scope="col">Round,Pick</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                  <th scope="col">College</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>1st,2nd</td>
+                <td>David Bailey</td>
+                <td ondblclick="positionDE()">DE</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Texas_Tech_Athletics_logo.svg/960px-Texas_Tech_Athletics_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Texas Tech Logo" width="35" height="35" onclick="texasTech()"></td>
+            </tr>
+            <tr>
+                <td>1st,16th</td>
+                <td>Kenyon Sadiq</td>
+                <td ondblclick="positionTE()">TE</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Oregon_Ducks_logo.svg/3840px-Oregon_Ducks_logo.svg.png" alt="Oregon Ducks Logo" width="35" height="35" onclick="oregon()"></td>
+            </tr>
+            <tr>
+                <td>1st,30th</td>
+                <td>Omar Cooper JR</td>
+                <td ondblclick="positionWR()">WR</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Indiana_Hoosiers_logo.svg/1920px-Indiana_Hoosiers_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Indiana Hoosiers Logo" width="35" height="35" onclick="indiana()"></td>
+            </tr>
+            <tr>
+                <td>2nd,50th</td>
+                <td>D'Angelo Ponds</td>
+                <td ondblclick="positionCB()">CB</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Indiana_Hoosiers_logo.svg/1920px-Indiana_Hoosiers_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="Indiana Hoosiers Logo" width="35" height="35" onclick="indiana()"></td>
+            </tr>
+            <tr>
+                <td>4th,103th</td>
+                <td>Darrell Jackson JR</td>
+                <td ondblclick="positionDT()">DT</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d5/Florida_State_Seminoles_logo.svg/1280px-Florida_State_Seminoles_logo.svg.png" alt="Florida State Logo" width="35" height="35" onclick="fsu()"></td>
+
+            </tr>
+            <tr>
+                <td>4th,110th</td>
+                <td>Cade Clubnik</td>
+                <td ondblclick="positionQB()">QB</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Clemson_Tigers_logo.svg/250px-Clemson_Tigers_logo.svg.png" alt="Clemson Tigers Logo" width="35" height="35" onclick="clemson()">
+
+            </tr>
+            <tr>
+                <td>6th,188th</td>
+                <td>Anez Cooper</td>
+                <td ondblclick="positionG()">G</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Miami_Hurricanes_logo.svg/3840px-Miami_Hurricanes_logo.svg.png" alt="Miami Hurricanes Logo" width="35" height="35" onclick="miami()">
+
+            </tr>
+            <tr>
+                <td>7th,228th</td>
+                <td>VJ Payne</td>
+                <td ondblclick="positionS()">S</td>
+                <td><img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Kansas_State_Wildcats_logo.svg/1280px-Kansas_State_Wildcats_logo.svg.png" alt="Kansas State Logo" width="35" height="35" onclick="kansasState()">
+
+            </tr>
+        </td>
+        </table>
+        <h4 class="head" id="DE"></h4>
+           <h4 class="head" id="TE"></h4>
+           <h4 class="head" id="WR"></h4>
+            <h4 class="head" id="CB"></h4>
+            <h4 class="head" id="DT"></h4>
+             <h4 class="head" id="QB"></h4>
+              <h4 class="head" id="G"></h4>
+               <h4 class="head" id="S"></h4>
+        <h2 class="draft">Choose your favorite east team (Jets,Bills,Patriots,Dolphins,Commanders,Eagles,Cowboys,Giants)</h2>
+        <div id="wrapper">
+  <input id="teamType" type="text">
+  <input onclick="favoriteTeam()" type="button" value="Submit team"
+  </div>
+
+  <div>
+     </div>
+  
+        
+</body>

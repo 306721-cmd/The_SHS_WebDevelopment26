@@ -1,0 +1,4 @@
+# TripHub 404 handler
+# Update the path below if your site is served from a different document root.
+ErrorDocument 404 /user11.html/404.html
+s

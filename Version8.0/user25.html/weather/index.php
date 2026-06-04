@@ -1,13 +1,14 @@
 <?php
-$apiKey = "API KEY"; //You will need to add in the 
-$cityId = "5046997"; //5046997 Shakopee City Id
-$units = "metric";//metric-Celcius  imperial-Farhenheit
-if ($units == 'metric'){//Changes the $temp varaible to match 
+$apiKey = "c14978e83d18ee75190e41eacfaabcc1";
+$cityId = "5046997";
+$units = "imperial"; // Fahrenheit
+
+if ($units == 'metric'){
     $temp = "C";
-}
-else {
+} else {
     $temp = "F";
 }
+
 $googleApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" . $cityId . "&lang=en&units=" . $units . "&APPID=" . $apiKey;
 
 $ch = curl_init();
@@ -16,19 +17,31 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_URL, $googleApiUrl);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($ch, CURLOPT_VERBOSE, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-$response = curl_exec($ch);
 
+$response = curl_exec($ch);
 curl_close($ch);
+
 $data = json_decode($response);
+
 $currentTime = time();
+
+// background color logic
+$tempValue = $data->main->temp;
+
+if ($tempValue > 80) {
+    $bg = "red";
+} elseif ($tempValue > 60) {
+    $bg = "orange";
+} else {
+    $bg = "lightblue";
+}
 ?>
 
 <!doctype html>
 <html>
 <head>
-<title>Forecast Weather using OpenWeatherMap with PHP</title>
+<title>Weather App</title>
 
 <style>
 body {
@@ -68,27 +81,37 @@ span.min-temperature {
 </style>
 
 </head>
-<body>
 
-    <div class="report-container">
-        <h2><?php echo $data->name; ?> Weather Status</h2>
-        <div class="time">
-            <div><?php echo date("l g:i a", $currentTime); ?></div>
-            <div><?php echo date("jS F, Y",$currentTime); ?></div>
-            <div><?php echo ucwords($data->weather[0]->description); ?></div>
-        </div>
-        <div class="weather-forecast">
-            <img
-                src="http://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
-                class="weather-icon" /> <?php echo $data->main->temp_max; ?>&deg;<?php echo $temp; ?><span
-                class="min-temperature"><?php echo $data->main->temp_min; ?>&deg;<?php echo $temp; ?></span>
-        </div>
-        <div class="time">
-            <div>Humidity: <?php echo $data->main->humidity; ?> %</div>
-            <div>Wind: <?php echo $data->wind->speed; ?> km/h</div>
-        </div>
+<body style="background-color: <?php echo $bg; ?>;">
+
+<div class="report-container">
+
+    <h2><?php echo $data->name; ?> Weather Status</h2>
+
+    <div class="time">
+        <div><?php echo date("l g:i a", $currentTime); ?></div>
+        <div><?php echo date("jS F, Y", $currentTime); ?></div>
+        <div><?php echo ucwords($data->weather[0]->description); ?></div>
     </div>
 
+    <div class="weather-forecast">
+        <img src="http://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
+             class="weather-icon" />
+
+        <?php echo $data->main->temp_max; ?>&deg;<?php echo $temp; ?>
+
+        <span class="min-temperature">
+            <?php echo $data->main->temp_min; ?>&deg;<?php echo $temp; ?>
+        </span>
+    </div>
+
+    <div class="time">
+        <div>Humidity: <?php echo $data->main->humidity; ?> %</div>
+        <div>Wind: <?php echo $data->wind->speed; ?> km/h</div>
+        <div>Feels Like: <?php echo $data->main->feels_like; ?>&deg;<?php echo $temp; ?></div>
+    </div>
+
+</div>
 
 </body>
 </html>

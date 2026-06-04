@@ -1,107 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Version 3.0
-        Name:
-        Date Completed:
-    -->
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philadelphia Eagles</title>
 
-    <title>Web Dev User ## </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="SHS WebDev Version 3.0">
+    <style>
+        body {
+            background: url("images/jalenhurts.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
 
-    <!-- CSS -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <!-- Custom -->
-    <link rel="stylesheet" href="CSS/style.css">
+        .overlay {
+            background: rgba(0, 0, 0, 0.65);
+            min-height: 100vh;
+            color: white;
+        }
 
-    <!-- JavaScript -->
-    <!-- These are needed to get the responsive menu to work -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+        .card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+        }
 
-    <!-- Custom styles for this template -->
-    <style type="text/css">
-        footer {
-            font-size: 12px;
-            text-align: center;
+        .schedule-img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px;
+            margin-top: 30px;
         }
     </style>
 </head>
 
 <body>
-    <!---------------------------------- Begin the nav-bar ------------->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a href="http://shakonet.isd720.com" class="navbar-brand">WebDev</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav me-auto">
-                    <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Edit These Items in your NavBar ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="aboutMe.html" class="nav-link">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="music.html" class="nav-link">Music</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="list.html" class="nav-link">Lists</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-link disabled" tabindex="-1">Contact</a>
-                    </li>
-                    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Edit These Items in your NavBar ↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
-                </ul>
-                <form class="d-flex">
-                    <button class="btn btn-primary" type="button">Login</button>
-                </form>
+<div class="overlay">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="index.html">Eagles Nation</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="aboutMe.html" class="nav-link">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="music.html" class="nav-link">Players</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="shop.html" class="nav-link">Shop</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="text-center p-5">
+    <h1>Philadelphia Eagles</h1>
+    <p class="lead">Fly Eagles Fly 🦅 | Built for Championships</p>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container my-5">
+
+    <div class="row text-center">
+
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h3>🏆 Team History</h3>
+                <p>
+                    The Philadelphia Eagles are one of the most iconic teams in the NFL,
+                    with a Super Bowl LII championship and a loyal fan base.
+                </p>
             </div>
         </div>
-    </nav>
-    <!---------------------------------- End the nav-bar ------------------------------------->
 
-    <main class="container-fluid mt-3">
-
-        <h1 class="text-left my-3">Home</h1>
-        <!-- Edit this line for the title of your page -->
-
-        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ Put your content below this line ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-        <p>
-
-            This is my first webpage! I was able to code all the HTML and CSS in order to make it. Watch out world of web design here I come!
-        </p>
-        <p>
-
-            I can use my skills here to create websites for my business, my friends and family, my C.V, blog or articles. As well as any games or more experiment stuff (which is what the web is really all about).
-        </p>
-    </main>
-    <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Make sure all your content is above this line ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
-
-
-    <!---------------------------------- Begin the footer ------------->
-    <footer>
-        <div>
-            Webpage made by <a href="#" target="_blank">[your name]</a>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h3>⭐ Star Players</h3>
+                <p>
+                    Led by Jalen Hurts, with elite weapons like A.J. Brown and DeVonta Smith.
+                </p>
+            </div>
         </div>
-    </footer>
-    <!---------------------------------- End the footer ------------->
-</body>
 
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h3>🔥 2025 Season</h3>
+                <p>
+                    The Eagles remain one of the top NFC contenders every year.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCHEDULE IMAGE SECTION -->
+    <div class="text-center mt-5">
+        <h2>2026 Season Schedule</h2>
+        <img src="images/Philly.jpg" alt="Eagles Schedule" class="schedule-img">
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="text-center p-3">
+    <p>&copy; 2026 Eagles Nation</p>
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>

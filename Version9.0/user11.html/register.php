@@ -1,199 +1,92 @@
-<?php
-// Include config file
-require_once "config.php";
- 
-// Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Validate username
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
-                } else{
-                    $username = trim($_POST["username"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
-    } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
-        }
-    }
-    
-    // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-         
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Close connection
-    mysqli_close($link);
-}
-?>
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="SHS WebDev Menu Sample">
-
-    <title>Sign Up</title>
-
-    <!-- Bootstrap core JS -->
-    <!-- These are needed to get the responsive menu to work -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style type="text/css">
-        body {
-            font: 14px sans-serif;
-        }
-
-        .wrapper {
-            width: 350px;
-            padding: 20px;
-        }
-
-        .menu {
-            margin: 0px;
-        }
-
-        .wideMargin {
-            margin: 15px;
-        }
-
-        #footer {
-            font-size: 12px;
-            text-align: center;
-        }
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TripHub | Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/product.css">
+    <style>
+      body { background: #f8f9fa; }
+      .auth-card { max-width: 520px; margin: 5rem auto; }
     </style>
-</head>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">TripHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="destinations.html">Plan Trip</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link active" href="register.html">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<body>
-    <div class="menu">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a href="http://shakonet.isd720.com/WebDev" class="navbar-brand">WebDev</a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <main class="auth-card">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="h3 mb-3">Register</h1>
+          <div id="registerAlert"></div>
+          <form id="registerForm">
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input type="text" name="username" class="form-control" autocomplete="username">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" autocomplete="new-password">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Confirm Password</label>
+              <input type="password" name="confirm_password" class="form-control" autocomplete="new-password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+          </form>
+          <p class="mt-3 mb-0 text-center">Already have an account? <a href="login.html">Login here</a>.</p>
+        </div>
+      </div>
+    </main>
 
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <!---------------------------------- Edit These Items in your Menu ------------->
-                    <a href="index.php" class="nav-item nav-link">Home</a>
-                    <a href="#" class="nav-item nav-link">About Me</a>
-                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Music</a>
-                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Lists</a>
-                    <a href="gallery.php" class="nav-item nav-link" tabindex="-1">Photo Gallery</a>
-                    <a href="mailto:sample@gmail.com?Subject=Hello" class="nav-item nav-link disabled" tabindex="-1">Contact</a>
-                    <!----------------------------------^ Edit These Items in your Menu ^ ------------->
-                </div>
-                <div class="navbar-nav ml-auto">
-                    <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-                    echo "<a href='logout.php' class='nav-item nav-link btn-danger' onclick='return confirm(\"Are you sure?\");'> Logout </a>";
-                    } else { echo "<a href='login.php' class='nav-item nav-link active'> Login </a>";} ?>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const registerForm = document.getElementById('registerForm');
+      const registerAlert = document.getElementById('registerAlert');
 
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>
-</body>
+      function showRegisterMessage(type, text) {
+        registerAlert.innerHTML = `<div class="alert alert-${type}" role="alert">${text}</div>`;
+      }
 
+      registerForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const username = registerForm.username.value.trim();
+        const password = registerForm.password.value.trim();
+        const confirmPassword = registerForm.confirm_password.value.trim();
+
+        if (!username || !password || !confirmPassword) {
+          showRegisterMessage('warning', 'Please complete all fields.');
+          return;
+        }
+        if (password.length < 6) {
+          showRegisterMessage('warning', 'Password must be at least 6 characters.');
+          return;
+        }
+        if (password !== confirmPassword) {
+          showRegisterMessage('danger', 'Passwords do not match.');
+          return;
+        }
+
+        localStorage.setItem('tripHubUser', JSON.stringify({ username, password }));
+        showRegisterMessage('success', 'Account created! You can now login.');
+        registerForm.reset();
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Functions</title>
+
+    <script>
+        // ADD FUNCTION
+        function addNums() {
+            const a = Number(document.getElementById("addNum1").value);
+            const b = Number(document.getElementById("addNum2").value);
+
+            document.getElementById("addOutput").innerHTML = a + b;
+        }
+
+        // MULTIPLY FUNCTION
+        function multiplyNums() {
+            const a = Number(document.getElementById("multNum1").value);
+            const b = Number(document.getElementById("multNum2").value);
+
+            document.getElementById("multOutput").innerHTML = a * b;
+        }
+
+        // PYTHAGOREAN THEOREM FUNCTION
+        function findC() {
+            const a = Number(document.getElementById("sideA").value);
+            const b = Number(document.getElementById("sideB").value);
+
+            const c = Math.sqrt((a * a) + (b * b));
+
+            document.getElementById("cOutput").innerHTML = c;
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .box {
+            margin: 30px auto;
+            padding: 20px;
+            width: 300px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Math Functions Webpage</h1>
+
+    <!-- ADD -->
+    <div class="box">
+        <h2>Add</h2>
+
+        <input id="addNum1" type="text" placeholder="First Number">
+        <input id="addNum2" type="text" placeholder="Second Number">
+
+        <button onclick="addNums()">Add</button>
+
+        <p>Output: <span id="addOutput"></span></p>
+    </div>
+
+    <!-- MULTIPLY -->
+    <div class="box">
+        <h2>Multiply</h2>
+
+        <input id="multNum1" type="text" placeholder="First Number">
+        <input id="multNum2" type="text" placeholder="Second Number">
+
+        <button onclick="multiplyNums()">Multiply</button>
+
+        <p>Output: <span id="multOutput"></span></p>
+    </div>
+
+    <!-- FIND C -->
+    <div class="box">
+        <h2>Find C (Pythagorean Theorem)</h2>
+
+        <input id="sideA" type="text" placeholder="Side A">
+        <input id="sideB" type="text" placeholder="Side B">
+
+        <button onclick="findC()">Find C</button>
+
+        <p>Output: <span id="cOutput"></span></p>
+    </div>
+
+</body>
+</html>
